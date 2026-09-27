@@ -92,11 +92,7 @@ Evaluated strategies:
 * **Always Defect:** $a_i^t = \text{Defect}$ for all $t$.
 * **Grim Trigger (Grudger):**
 
-  $$
-  a_i^t = \begin{cases} \text{Cooperate}, & \text{if } a_{-i}^{\tau} = \text{Cooperate} \quad \forall \tau \lt t \\\\ \text{Defect}, & \text{otherwise} \end{cases}
-  $$
-
----
+  $$a_i^t = \begin{cases} \text{Cooperate}, & \text{if } a_{-i}^{\tau} = \text{Cooperate} \quad \forall \tau \lt t \\\\ \text{Defect}, & \text{otherwise} \end{cases}$$
 
 ## 3. Computational Results
 
