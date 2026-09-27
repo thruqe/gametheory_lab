@@ -92,7 +92,9 @@ Evaluated strategies:
 * **Always Defect:** $a_i^t = \text{Defect}$ for all $t$.
 * **Grim Trigger (Grudger):**
 
-  $$a_i^t = \begin{cases} \text{Cooperate}, & \text{if } a_{-i}^{\tau} = \text{Cooperate} \quad \forall \tau \lt t \\\\ \text{Defect}, & \text{otherwise} \end{cases}$$
+  ```math
+  a_i^t = \begin{cases} \text{Cooperate}, & \text{if } a_{-i}^{\tau} = \text{Cooperate} \quad \forall \tau < t \\ \text{Defect}, & \text{otherwise} \end{cases}
+  ```
 
 ## 3. Computational Results
 
@@ -118,7 +120,9 @@ TitForTat vs Grudger      -> Scores: (600, 600)
 * **Prisoner's Dilemma:** Payoff configuration $T \gt R \gt P \gt S$ ($5 \gt 3 \gt 1 \gt 0$). Because $u_1(D, c) \gt u_1(C, c)$ for all $c \in \lbrace C, D \rbrace$, strategy $C$ is strictly dominated. IESDS eliminates $C$ in step 1, leaving the unique equilibrium $(D, D)$ with payoffs $(1, 1)$.
 * **Matching Pennies:** Payoff matrix is zero-sum: $A + B = 0$, where:
 
-  $$A = \begin{pmatrix} 1 & -1 \\\\ -1 & 1 \end{pmatrix}$$
+  ```math
+  A = \begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}
+  ```
 
   Pure equilibria do not exist. Support enumeration identifies the unique fully-mixed equilibrium $(p^{\ast}, q^{\ast}) = ([0.5, 0.5], [0.5, 0.5])$ with game value $v = (p^{\ast})^T A q^{\ast} = 0.00$.
 * **Repeated Interaction:**
