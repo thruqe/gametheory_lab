@@ -1,3 +1,4 @@
+use gametheory_lab::core::economic::create_cournot_duopoly;
 use gametheory_lab::core::normal_form::NormalFormGame;
 use gametheory_lab::repeated::tournament::{AlwaysDefect, Grudger, TitForTat, run_match};
 use gametheory_lab::solvers::elimination::eliminate_dominated_strategies;
@@ -80,4 +81,24 @@ fn main() {
         "TitForTat vs Grudger      -> Scores: ({:.0}, {:.0})",
         s_tft2, s_grg
     );
+
+    println!("\n=== 4. Cournot Duopoly Game (Economic Game) ===");
+    // P(Q) = 100 - Q, marginal cost c = 10
+    // We will evaluate 5 quantity levels between 0 and 60
+    let cournot_game = create_cournot_duopoly(5, 60.0, 100.0, 1.0, 10.0).unwrap();
+
+    let cournot_equilibria = compute_nash_equilibria(&cournot_game);
+    for (i, eq) in cournot_equilibria.iter().enumerate() {
+        let (val1, val2) = cournot_game
+            .expected_payoffs(&eq.p1_strategy, &eq.p2_strategy)
+            .unwrap();
+        println!(
+            "NE #{}:\n  P1 strategy: {:?}\n  P2 strategy: {:?}\n  Expected Utility: ({:.2}, {:.2})",
+            i + 1,
+            eq.p1_strategy,
+            eq.p2_strategy,
+            val1,
+            val2
+        );
+    }
 }
